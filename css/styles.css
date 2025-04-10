@@ -1,0 +1,337 @@
+/* AthletiFi Dashboard Custom Styles */
+
+:root {
+  --athletifi-primary: #0052cc;
+  --athletifi-secondary: #00a3bf;
+  --athletifi-accent: #ff5630;
+  --athletifi-light: #f4f5f7;
+  --athletifi-dark: #172b4d;
+  --athletifi-success: #36b37e;
+  --athletifi-warning: #ffab00;
+  --athletifi-danger: #ff5630;
+  --athletifi-info: #00b8d9;
+}
+
+body {
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  color: var(--athletifi-dark);
+  background-color: #f8f9fa;
+}
+
+/* Header styles */
+header {
+  background-color: #fff;
+}
+
+.navbar-brand img {
+  max-height: 40px;
+}
+
+/* Sidebar styles */
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  padding: 48px 0 0;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+.sidebar .nav-link {
+  font-weight: 500;
+  color: var(--athletifi-dark);
+  padding: 0.75rem 1.5rem;
+  border-left: 3px solid transparent;
+}
+
+.sidebar .nav-link:hover {
+  color: var(--athletifi-primary);
+}
+
+.sidebar .nav-link.active {
+  color: var(--athletifi-primary);
+  background-color: rgba(0, 82, 204, 0.05);
+  border-left: 3px solid var(--athletifi-primary);
+}
+
+.sidebar .nav-link i {
+  margin-right: 0.5rem;
+  color: #6c757d;
+}
+
+.sidebar .nav-link.active i {
+  color: var(--athletifi-primary);
+}
+
+@media (max-width: 767.98px) {
+  .sidebar {
+    position: static;
+    padding-top: 0;
+  }
+}
+
+/* Card and section styling */
+.card {
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 1.5rem;
+}
+
+.card-header {
+  background-color: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 1rem 1.25rem;
+}
+
+.card-title {
+  margin-bottom: 0;
+  font-weight: 600;
+  color: var(--athletifi-dark);
+}
+
+.card-body {
+  padding: 1.25rem;
+}
+
+/* Chart container styling */
+.chart-container {
+  position: relative;
+  margin: auto;
+  height: 300px;
+  width: 100%;
+}
+
+/* Custom badge styling */
+.badge {
+  font-weight: 500;
+  padding: 0.35em 0.65em;
+  border-radius: 20px;
+}
+
+/* Custom table styling */
+.table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.table th {
+  font-weight: 600;
+  background-color: #fafbfc;
+  font-size: 0.9rem;
+}
+
+.table td {
+  vertical-align: middle;
+}
+
+/* List group styling */
+.list-group-item {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 0.75rem 1.25rem;
+}
+
+.list-group-item h6 {
+  font-weight: 600;
+}
+
+/* Progress bar styling */
+.progress {
+  height: 8px;
+  background-color: #ebecf0;
+  border-radius: 10px;
+  margin-bottom: 0.75rem;
+}
+
+.progress-bar {
+  border-radius: 10px;
+}
+
+/* Text utilities */
+.text-primary {
+  color: var(--athletifi-primary) !important;
+}
+
+.text-success {
+  color: var(--athletifi-success) !important;
+}
+
+.text-info {
+  color: var(--athletifi-info) !important;
+}
+
+.text-warning {
+  color: var(--athletifi-warning) !important;
+}
+
+.text-danger {
+  color: var(--athletifi-danger) !important;
+}
+
+/* Background utilities */
+.bg-primary {
+  background-color: var(--athletifi-primary) !important;
+}
+
+.bg-success {
+  background-color: var(--athletifi-success) !important;
+}
+
+.bg-info {
+  background-color: var(--athletifi-info) !important;
+}
+
+.bg-warning {
+  background-color: var(--athletifi-warning) !important;
+}
+
+.bg-danger {
+  background-color: var(--athletifi-danger) !important;
+}
+
+/* Custom scrollbar for better UX */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c7d0;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a5adba;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+  .chart-container {
+    height: 250px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .card {
+    margin-bottom: 1rem;
+  }
+  
+  .chart-container {
+    height: 200px;
+  }
+  
+  section {
+    margin-bottom: 2rem;
+  }
+}
+
+/* General utility classes */
+.border-left-primary {
+  border-left: 4px solid var(--athletifi-primary);
+}
+
+.shadow-sm {
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075) !important;
+}
+
+/* Age group specific styling */
+.age-16 {
+  border-left: 4px solid var(--athletifi-info);
+  padding-left: 1rem;
+}
+
+.age-13 {
+  border-left: 4px solid var(--athletifi-success);
+  padding-left: 1rem;
+}
+
+/* Status badge styling */
+.badge.bg-success {
+  background-color: var(--athletifi-success) !important;
+}
+
+.badge.bg-warning {
+  background-color: var(--athletifi-warning) !important;
+}
+
+.badge.bg-danger {
+  background-color: var(--athletifi-danger) !important;
+}
+
+.badge.bg-info {
+  background-color: var(--athletifi-info) !important;
+}
+
+.badge.bg-secondary {
+  background-color: #6c757d !important;
+}
+
+/* Raw feedback table styling */
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+#feedback-table thead th {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 10;
+  cursor: pointer;
+}
+
+#feedback-table thead th:after {
+  content: "⇵";
+  color: #ccc;
+  display: inline-block;
+  margin-left: 5px;
+  font-size: 12px;
+}
+
+#feedback-table thead th.sort-asc:after {
+  content: "↑";
+  color: var(--athletifi-primary);
+}
+
+#feedback-table thead th.sort-desc:after {
+  content: "↓";
+  color: var(--athletifi-primary);
+}
+
+.filter-btn.active, .age-filter-btn.active {
+  background-color: var(--athletifi-primary);
+  color: white;
+  border-color: var(--athletifi-primary);
+}
+
+.badge-bug {
+  background-color: var(--athletifi-danger);
+}
+
+.badge-enhancement {
+  background-color: var(--athletifi-warning);
+}
+
+.badge-feature {
+  background-color: var(--athletifi-info);
+}
+
+.badge-feedback {
+  background-color: var(--athletifi-success);
+}
+
+.feedback-highlight {
+  background-color: rgba(255, 230, 0, 0.2);
+}
+
+#page-indicator {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}
+
+.table-light th { background-color: #fafbfc; }

@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AthletiFi Hoagie Hangout Focus Group Analysis</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="shadow-sm bg-white"> 
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                    <div class="d-flex align-items-center py-2" style="min-height: 56px;">
+                        <a class="navbar-brand" href="#">
+                            <img src="img/logo.png" alt="AthletiFi Logo" height="40">
+                        </a>
+                        <h1 class="my-0 ms-3 fs-4 fw-bold">Hoagie Hangout Focus Group Analysis</h1>
+                        <span class="ms-auto">March 30, 2025</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <!-- Sidebar navigation -->
+            <div class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#summary">
+                                <i class="bi bi-speedometer2 me-2"></i>Executive Summary
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#consensus">
+                                <i class="bi bi-check-circle me-2"></i>Consensus & Contradictions
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#age-insights">
+                                <i class="bi bi-people me-2"></i>Age-Based Insights
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#feature-priority">
+                                <i class="bi bi-list-check me-2"></i>Feature Priority Matrix
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#assumption-validation">
+                                <i class="bi bi-clipboard-check me-2"></i>Assumption Validation
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#strategic-decisions">
+                              <i class="bi bi-lightbulb me-2"></i>Strategic Decisions
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#next-steps">
+                              <i class="bi bi-calendar-event me-2"></i>Next Steps & Experiments
+                            </a>
+                          </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#technical-issues">
+                                <i class="bi bi-exclamation-triangle me-2"></i>Technical Issues
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#raw-data">
+                                <i class="bi bi-table me-2"></i>Raw Feedback Data
+                            </a>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a class="nav-link" href="#meeting-guide">
+                                <i class="bi bi-calendar-event me-2"></i>Meeting Guide
+                            </a>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Main content area -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <!-- Executive Summary -->
+                <section id="summary" class="mb-5">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <h2>Executive Summary</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">Participation</h5>
+                                    <div class="d-flex align-items-center">
+                                        <div class="display-4 me-3 fw-bold text-primary">30</div>
+                                        <div>
+                                            <p class="mb-0">Youth players participated</p>
+                                            <p class="mb-0 text-muted">From Coventry Soccer Academy</p>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3">
+                                        <div class="d-flex justify-content-between">
+                                            <span>16-year-olds (2009)</span>
+                                            <span>15</span>
+                                        </div>
+                                        <div class="progress mb-2" style="height: 10px;">
+                                            <div class="progress-bar bg-info" role="progressbar" style="width: 50%"></div>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <span>13-year-olds (2012)</span>
+                                            <span>15</span>
+                                        </div>
+                                        <div class="progress" style="height: 10px;">
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: 50%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">Feedback Distribution</h5>
+                                    <div class="chart-container">
+                                        <canvas id="feedbackTypeChart"></canvas>
+                                    </div>
+                                    <div class="small text-muted mt-2">
+                                        <div><span class="badge bg-success me-1">32</span> General Feedback</div>
+                                        <div><span class="badge bg-danger me-1">14</span> Bug Reports</div>
+                                        <div><span class="badge bg-info me-1">18</span> Feature Requests</div>
+                                        <div><span class="badge bg-warning me-1">24</span> Enhancements</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">Critical Findings</h5>
+                                    <ul class="list-group list-group-flush">
+                                        <!-- <li class="list-group-item d-flex align-items-center">
+                                            <span class="badge bg-primary rounded-pill me-2">1</span>
+                                            <span>Distinct age-based motivations discovered</span>
+                                        </li>
+                                        <li class="list-group-item d-flex align-items-center">
+                                            <span class="badge bg-primary rounded-pill me-2">2</span>
+                                            <span>Video/highlights integration is essential</span>
+                                        </li>
+                                        <li class="list-group-item d-flex align-items-center">
+                                            <span class="badge bg-primary rounded-pill me-2">3</span>
+                                            <span>Sign-up process is a critical friction point</span>
+                                        </li>
+                                        <li class="list-group-item d-flex align-items-center">
+                                            <span class="badge bg-primary rounded-pill me-2">4</span>
+                                            <span>Card design needs professional options</span>
+                                        </li>
+                                        <li class="list-group-item d-flex align-items-center">
+                                            <span class="badge bg-primary rounded-pill me-2">5</span>
+                                            <span>Bio section needs more guidance/structure</span>
+                                        </li> -->
+                                        <li class="list-group-item d-flex align-items-center">
+                                            <span class="badge bg-primary rounded-pill me-2">1</span>
+                                            <span>Sign‑up / verification is the #1 friction point (especially for 13‑yos)</span>
+                                          </li>
+                                          <li class="list-group-item d-flex align-items-center">
+                                            <span class="badge bg-primary rounded-pill me-2">2</span>
+                                            <span>Card concept validated but photo & background tools are buggy</span>
+                                          </li>
+                                          <li class="list-group-item d-flex align-items-center">
+                                            <span class="badge bg-primary rounded-pill me-2">3</span>
+                                            <span>Highlights / video sharing is a must‑have for both groups</span>
+                                          </li>
+                                          <li class="list-group-item d-flex align-items-center">
+                                            <span class="badge bg-primary rounded-pill me-2">4</span>
+                                            <span>16‑yos want recruiting tools; 13‑yos want gamified social features</span>
+                                          </li>
+                                          <li class="list-group-item d-flex align-items-center">
+                                            <span class="badge bg-primary rounded-pill me-2">5</span>
+                                            <span>Need privacy / audience controls before younger players will share</span>
+                                          </li>
+                                          <li class="list-group-item d-flex align-items-center">
+                                            <span class="badge bg-primary rounded-pill me-2">6</span>
+                                            <span>Current URL is hard to type → consider re‑branding / new domain</span>
+                                          </li>
+                                          
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Consensus & Contradictions -->
+                <section id="consensus" class="mb-5">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <h2>Consensus & Contradictions</h2>
+                    </div>
+                    <div class="card shadow-sm mb-4">
+                        <div class="card-header bg-light">
+                            <h5 class="mb-0">Areas of Strong Consensus</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Topic</th>
+                                            <th scope="col">What Everyone Agrees On</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Player Card Concept</td>
+                                            <td>Generally positive response to the card creation and customization features</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Background Removal</td>
+                                            <td>Technical issues with the background removal feature need to be fixed</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Technical Challenges</td>
+                                            <td>Sign-up/verification process was confusing or difficult for many users</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Photo Management</td>
+                                            <td>Issues with photo sizing, positioning, and upload limitations</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Missing Core Feature</td>
+                                            <td>Video/highlights sharing capability is essential and currently not clear</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Bio Section</td>
+                                            <td>Valued by all users, though some uncertainty about what to include</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-light">
+                            <h5 class="mb-0">Internal Contradictions Within Groups</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Group</th>
+                                            <th scope="col">Contradiction Area</th>
+                                            <th scope="col">Conflicting Viewpoints</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>16-year-olds</td>
+                                            <td>Social Sharing</td>
+                                            <td>Some expressed interest in sharing with friends while others were indifferent: "I guess I would share my profile with my friends, 'why not'" vs apparent lack of enthusiasm</td>
+                                        </tr>
+                                        <tr>
+                                            <td>16-year-olds</td>
+                                            <td>Statistics Focus</td>
+                                            <td>Different opinions on which stats matter most: some focused on position-specific stats, others on overall play style</td>
+                                        </tr>
+                                        <tr>
+                                            <td>13-year-olds</td>
+                                            <td>Friend Reactions</td>
+                                            <td>"We'd be interested in seeing posts from our soccer friends" vs "I don't think my friends would care about seeing my posts. They would probably hate on me"</td>
+                                        </tr>
+                                        <tr>
+                                            <td>13-year-olds</td>
+                                            <td>Privacy Concerns</td>
+                                            <td>Some want public profiles while others expressed concerns: "I don't like how anyone can view my profile. I would like to be able to set it to private"</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Both Groups</td>
+                                            <td>Posting Frequency</td>
+                                            <td>Varied responses about how often they would post, ranging from "1-2 times per week" to much less frequently</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Both Groups</td>
+                                            <td>Card Backgrounds</td>
+                                            <td>Mixed feedback on current background designs - some like them, others find them lacking</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Age-Based Insights -->
+                <section id="age-insights" class="mb-5">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <h2>Age-Based Insights</h2>
+                    </div>
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-light">
+                            <h5 class="mb-0">Age-Group Differences (13-year-olds vs. 16-year-olds)</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Topic</th>
+                                            <th scope="col" class="text-info">16-year-olds (2009)</th>
+                                            <th scope="col" class="text-success">13-year-olds (2012)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Primary Motivation</strong></td>
+                                            <td class="text-info">College recruitment focused: "I would imagine using the platform year round to show my performance to other coaches"</td>
+                                            <td class="text-success">Entertainment and social focused: "It would be cool if like you had a TikTok part of it where you could just scroll"</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Card Design</strong></td>
+                                            <td class="text-info">Want professional, clean designs: "Some of the backgrounds are a little cheesy. I'd like something cleaner"</td>
+                                            <td class="text-success">Want sports-themed fun designs: "I'd like to add a Lebron James background"</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Feature Priorities</strong></td>
+                                            <td class="text-info">Coach interactions, highlight organization, performance metrics</td>
+                                            <td class="text-success">Fantasy team creation, scrollable feeds, game-like features ("like Madfut")</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Usage Intent</strong></td>
+                                            <td class="text-info">Portfolio building for recruitment: "If a college coach was viewing my profile the first thing I would want them to see is my bio"</td>
+                                            <td class="text-success">Fun and status among peers: "I think this is really cool because it makes you feel like a pro"</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Content Sharing</strong></td>
+                                            <td class="text-info">Strategic, carefully curated: "We would definitely make sure we only showed the best content"</td>
+                                            <td class="text-success">Casual, interest in privacy controls: "I don't like how anyone can view my profile"</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="card mt-3 border-primary">
+                                <div class="card-header bg-primary text-white">
+                                    <h6 class="mb-0">Strategic Implications</h6>
+                                </div>
+                                <div class="card-body">
+                                    <p>The data shows a clear bifurcation in user needs based on age, suggesting three potential strategic paths:</p>
+                                    <ol>
+                                        <li><strong>Focus on 16-year-olds:</strong> Build recruitment-focused features first, emphasizing professional presentation and coach interactions</li>
+                                        <li><strong>Focus on 13-year-olds:</strong> Build engagement and social features first, emphasizing gamification and friend interactions</li>
+                                        <li><strong>Dual-track approach:</strong> Develop separate feature sets for different age groups with a common core platform</li>
+                                    </ol>
+                                </div>
+                                <div class="card mt-3 border-info">
+                                    <div class="card-header bg-info text-white">
+                                      <h6 class="mb-0">Recommended Path (based on focus‑group data)</h6>
+                                    </div>
+                                    <div class="card-body">
+                                      <p class="mb-2">Start with the segment that has an immediate <strong>“job to be done”</strong>:</p>
+                                      <ul>
+                                        <li><strong>Phase 1 (Q2):</strong> 16‑yos → ship recruiting‑centric features (highlights, coach messaging, pro card designs).</li>
+                                        <li><strong>Phase 2 (Q3):</strong> Layer in 13‑yo gamification (feed, fantasy roster, follow/friend system).</li>
+                                        <li><strong>Shared Core:</strong> smoother sign‑up, privacy controls, improved card editor.</li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                  
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Feature Priority Matrix -->
+                <section id="feature-priority" class="mb-5">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <h2>Feature Priority Matrix</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="card shadow-sm mb-4">
+                                <div class="card-body">
+                                    <div class="chart-container" style="position: relative; height:60vh;">
+                                        <canvas id="priorityMatrix"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="card shadow-sm h-100">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">Top Feature Requests</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="list-group">
+                                        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <h6 class="mb-1">Video/Highlights Integration</h6>
+                                                <p class="mb-1 small text-muted">16yo Priority</p>
+                                            </div>
+                                            <span class="badge bg-primary rounded-pill">14</span>
+                                        </a>
+                                        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <h6 class="mb-1">Scrollable Activity Feed</h6>
+                                                <p class="mb-1 small text-muted">13yo Priority</p>
+                                            </div>
+                                            <span class="badge bg-primary rounded-pill">8</span>
+                                        </a>
+                                        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <h6 class="mb-1">College Coach Connections</h6>
+                                                <p class="mb-1 small text-muted">16yo Priority</p>
+                                            </div>
+                                            <span class="badge bg-primary rounded-pill">7</span>
+                                        </a>
+                                        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <h6 class="mb-1">Fantasy Team Creation</h6>
+                                                <p class="mb-1 small text-muted">13yo Priority</p>
+                                            </div>
+                                            <span class="badge bg-primary rounded-pill">6</span>
+                                        </a>
+                                        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <h6 class="mb-1">Profile Privacy Controls</h6>
+                                                <p class="mb-1 small text-muted">Both Age Groups</p>
+                                            </div>
+                                            <span class="badge bg-primary rounded-pill">5</span>
+                                        </a>
+                                        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <h6 class="mb-1">Professional Card Designs</h6>
+                                                <p class="mb-1 small text-muted">16yo Priority</p>
+                                            </div>
+                                            <span class="badge bg-primary rounded-pill">5</span>
+                                        </a>
+                                        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <h6 class="mb-1">Profile View Notifications</h6>
+                                                <p class="mb-1 small text-muted">16yo Priority</p>
+                                            </div>
+                                            <span class="badge bg-primary rounded-pill">4</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Assumption Validation -->
+                <section id="assumption-validation" class="mb-5">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <h2>Assumption Validation</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card shadow-sm">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">Leap of Faith Assumptions Scorecard</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Assumption</th>
+                                                    <th>Status</th>
+                                                    <th>Evidence</th>
+                                                    <th>Implications</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Youth players find the player card concept compelling</td>
+                                                    <td><span class="badge bg-success">Validated</span></td>
+                                                    <td>"I like the option to customize stuff" - Big 1<br>"Making your own cards is cool" - Little 1<br>"The player card idea is great" - Leo Martin</td>
+                                                    <td>Continue developing player card functionality as core platform feature</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>The user flow for creating player cards is intuitive and engaging</td>
+                                                    <td><span class="badge bg-warning">Partially Validated</span></td>
+                                                    <td>"Quick and easy process" - Little 4<br>"Did not have to do a lot of steps to generate card" - Little 5<br>"I didn't know if I should sign up or choose create a new card button" - Big 2</td>
+                                                    <td>Flow works but needs refinement; clearer pathways between card creation and account setup</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Users would value and potentially purchase physical versions of their digital cards</td>
+                                                    <td><span class="badge bg-secondary">Insufficient Data</span></td>
+                                                    <td>One mention: "What I like: The bio, the achievement page, the discover other players, the fact you can order cards" - Big 2</td>
+                                                    <td>Need more direct questioning about physical card interest in future testing</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Multi-sport athletes want a unified platform</td>
+                                                    <td><span class="badge bg-success">Validated</span></td>
+                                                    <td>"It's pretty important to be able to share all my sports on my profile, because otherwise I'd have to only choose one" - Audio Big 1<br>"We usually have one instagram page where I share all my sports clips" - Group</td>
+                                                    <td>Maintain focus on multi-sport support in platform development</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Athletes want to share their athletic journey with friends and coaches</td>
+                                                    <td><span class="badge bg-info">Age-Dependent</span></td>
+                                                    <td>16yo: Focused on coach sharing<br>13yo: Mixed on friend sharing<br>"They would probably hate on me" - Littles Group</td>
+                                                    <td>Different sharing approaches needed for different age groups</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Small communities can create sufficient engagement</td>
+                                                    <td><span class="badge bg-success">Validated</span></td>
+                                                    <td>"We'd be interested in a feed - even if it was only soccer videos from my friends" - Group<br>"If we were in a league or tournament, we would be more likely to post" - Audio Big 3</td>
+                                                    <td>Team-centric rollout strategy is viable</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Strategic Decisions -->
+                <section id="strategic-decisions" class="mb-5">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h2>Strategic Decisions</h2>
+                    </div>
+                
+                    <div class="row row-cols-1 row-cols-lg-2 g-4">
+                    <!-- Decision A -->
+                    <div class="col">
+                        <div class="card shadow-sm h-100">
+                        <div class="card-header bg-light">
+                            <h6 class="mb-0">A. Age Segmentation</h6>
+                        </div>
+                        <div class="card-body">
+                            <p class="mb-0">✅ Prioritize 16‑yos first, but design a gamified path for 13‑yos (see Age‑Insights).</p>
+                        </div>
+                        </div>
+                    </div>
+                    <!-- Decision B -->
+                    <div class="col">
+                        <div class="card shadow-sm h-100">
+                        <div class="card-header bg-light">
+                            <h6 class="mb-0">B. Card Design Evolution</h6>
+                        </div>
+                        <div class="card-body">
+                            <p class="mb-0">Ship 3 “clean / pro” templates ASAP; keep current fun templates for younger users.</p>
+                        </div>
+                        </div>
+                    </div>
+                    <!-- Decision C -->
+                    <div class="col">
+                        <div class="card shadow-sm h-100">
+                        <div class="card-header bg-light">
+                            <h6 class="mb-0">C. Team Video Integration</h6>
+                        </div>
+                        <div class="card-body">
+                            <p class="mb-0">Fast‑track full‑match uploads & auto‑clip selection; it underpins both recruiting & social feed.</p>
+                        </div>
+                        </div>
+                    </div>
+                    <!-- Decision D -->
+                    <div class="col">
+                        <div class="card shadow-sm h-100">
+                        <div class="card-header bg-light">
+                            <h6 class="mb-0">D. Onboarding Simplification</h6>
+                        </div>
+                        <div class="card-body">
+                            <p class="mb-0">Add phone‑based sign‑up + one‑tap magic‑link; move heavy email verification to coaches.</p>
+                        </div>
+                        </div>
+                    </div>
+                    <!-- Decision E -->
+                    <div class="col">
+                        <div class="card shadow-sm h-100">
+                        <div class="card-header bg-light">
+                            <h6 class="mb-0">E. Privacy / Audience Control</h6>
+                        </div>
+                        <div class="card-body">
+                            <p class="mb-0">Build profile visibility toggles (public / friends / coaches) before public launch.</p>
+                        </div>
+                        </div>
+                    </div>
+                    <!-- Decision F -->
+                    <div class="col">
+                        <div class="card shadow-sm h-100">
+                        <div class="card-header bg-light">
+                            <h6 class="mb-0">F. Branding / Domain</h6>
+                        </div>
+                        <div class="card-body">
+                            <p class="mb-0">Begin name‑change discovery this month; new short URL is part of onboarding fix.</p>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </section>
+
+                <!-- Next Steps & Experiments -->
+                <section id="next-steps" class="mb-5">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h2>Next Steps & Experiments</h2>
+                    </div>
+                
+                    <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Build‑Measure‑Learn Cycle (Q2 Roadmap)</h5>
+                        <div class="table-responsive">
+                        <table class="table table-hover align-middle">
+                            <thead class="table-light">
+                            <tr>
+                                <th>Small‑Batch Improvement</th>
+                                <th>Success Metric</th>
+                                <th>Owner</th>
+                                <th>Target Date</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Simplify sign‑up (phone + magic link)</td>
+                                <td>↑ Sign‑up completion to 90%</td>
+                                <td>Dev Team</td>
+                                <td>May 31</td>
+                            </tr>
+                            <tr>
+                                <td>Stabilize background removal & photo tools</td>
+                                <td>↓ Photo‑related bug reports by 75%</td>
+                                <td>Dev Team</td>
+                                <td>Jun 15</td>
+                            </tr>
+                            <tr>
+                                <td>Ship 3 professional card templates</td>
+                                <td>↑ Card completion rate to 80%</td>
+                                <td>Product + Design</td>
+                                <td>Jun 30</td>
+                            </tr>
+                            <tr>
+                                <td>Alpha release of highlight upload & share</td>
+                                <td>≥ 50% of active users post ≥1 clip</td>
+                                <td>Video Squad</td>
+                                <td>Jul 15</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>
+                    </div>
+                </section>
+  
+                <!-- Technical Issues -->
+                <section id="technical-issues" class="mb-5">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <h2>Technical Issues</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card shadow-sm">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">Critical Technical Bugs</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Issue</th>
+                                                    <th>Frequency</th>
+                                                    <th>Impact</th>
+                                                    <th>Evidence</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="table-danger">
+                                                    <td>Background removal issues</td>
+                                                    <td>High (8+ mentions)</td>
+                                                    <td>High - affects core card appearance</td>
+                                                    <td>"Backround remover is a little messed up and sometimes cuts off parts of the picture" - Big 1<br>"It cut off my head or the whole photo" - Big 2</td>
+                                                </tr>
+                                                <tr class="table-danger">
+                                                    <td>Sign-up and verification process</td>
+                                                    <td>High (6+ mentions)</td>
+                                                    <td>Critical - blocks user onboarding</td>
+                                                    <td>"My phone doesn't get email so I wasn't able to get past sign up" - James Burrell<br>"The sign in process was difficult and stressful. Many of us didn't get it to work" - Group</td>
+                                                </tr>
+                                                <tr class="table-warning">
+                                                    <td>Photo sizing/positioning issues</td>
+                                                    <td>Medium (5 mentions)</td>
+                                                    <td>Medium - affects card quality</td>
+                                                    <td>"I don't like how the photo covers the name and number of the player" - Graham Burrell<br>"Sometimes the picture was too big for the card" - James Burrell</td>
+                                                </tr>
+                                                <tr class="table-warning">
+                                                    <td>Image rotation issues</td>
+                                                    <td>Medium (3 mentions)</td>
+                                                    <td>Medium - affects user experience</td>
+                                                    <td>"My photo kept going sideways [when uploading a photo for creating a player card]" - Little 2</td>
+                                                </tr>
+                                                <tr class="table-warning">
+                                                    <td>File size limitations</td>
+                                                    <td>Low (2 mentions)</td>
+                                                    <td>Medium - prevents using preferred images</td>
+                                                    <td>"I can't put certain images that I like because the file is too big" - Graham Burrell</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Raw Feedback Data -->
+                <section id="raw-data" class="mb-5">
+                  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                      <h2>Raw Feedback Data</h2>
+                      <div class="btn-toolbar mb-2 mb-md-0">
+                          <div class="input-group me-2">
+                              <input type="text" id="feedback-search" class="form-control" placeholder="Search feedback...">
+                              <button class="btn btn-outline-secondary" type="button" id="search-btn">
+                                  <i class="bi bi-search"></i>
+                              </button>
+                          </div>
+                          <div class="btn-group me-2">
+                              <button type="button" class="btn btn-sm btn-outline-secondary filter-btn" data-filter="all">All</button>
+                              <button type="button" class="btn btn-sm btn-outline-secondary filter-btn" data-filter="bug">Bugs</button>
+                              <button type="button" class="btn btn-sm btn-outline-secondary filter-btn" data-filter="feature">Features</button>
+                              <button type="button" class="btn btn-sm btn-outline-secondary filter-btn" data-filter="enhancement">Enhancements</button>
+                              <button type="button" class="btn btn-sm btn-outline-secondary filter-btn" data-filter="feedback">Feedback</button>
+                          </div>
+                          <div class="btn-group">
+                              <button type="button" class="btn btn-sm btn-outline-secondary age-filter-btn" data-age="all">All Ages</button>
+                              <button type="button" class="btn btn-sm btn-outline-secondary age-filter-btn" data-age="2009">16yo</button>
+                              <button type="button" class="btn btn-sm btn-outline-secondary age-filter-btn" data-age="2012">13yo</button>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="card shadow-sm">
+                      <div class="card-body">
+                          <div class="table-responsive" style="max-height: 1100px;">
+                              <table class="table table-hover table-striped" id="feedback-table">
+                                  <thead class="sticky-top bg-white">
+                                      <tr>
+                                          <th scope="col" class="sortable" data-sort="name">Name</th>
+                                          <th scope="col" class="sortable" data-sort="feedback">Feedback</th>
+                                          <th scope="col" class="sortable" data-sort="source">Source</th>
+                                          <th scope="col" class="sortable" data-sort="type">Type</th>
+                                          <th scope="col" class="sortable" data-sort="rating">Rating</th>
+                                          <th scope="col" class="sortable" data-sort="birthyear">Age Group</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody id="feedback-table-body">
+                                      <!-- Table rows will be populated by JavaScript -->
+                                      <tr>
+                                          <td colspan="6" class="text-center">Loading feedback data...</td>
+                                      </tr>
+                                  </tbody>
+                              </table>
+                          </div>
+                          <div class="d-flex justify-content-between align-items-center mt-3">
+                              <div class="feedback-count">
+                                  Showing <span id="visible-count">0</span> of <span id="total-count">0</span> feedback items
+                              </div>
+                              <div class="pagination-controls">
+                                  <button class="btn btn-sm btn-outline-primary me-2" id="prev-page" disabled>
+                                      <i class="bi bi-chevron-left"></i> Previous
+                                  </button>
+                                  <span id="page-indicator">Page 1</span>
+                                  <button class="btn btn-sm btn-outline-primary ms-2" id="next-page">
+                                      Next <i class="bi bi-chevron-right"></i>
+                                  </button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                </section>
+                <!-- Meeting Guide -->
+                <!-- <section id="meeting-guide" class="mb-5">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <h2>Meeting Guide</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card shadow-sm">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">Session Structure (2 hours)</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Time</th>
+                                                    <th>Activity</th>
+                                                    <th>Focus</th>
+                                                    <th>Discussion Prompts</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><span class="badge bg-secondary">15 min</span></td>
+                                                    <td>Setting the Stage</td>
+                                                    <td>Review meeting goals and recap focus group context</td>
+                                                    <td>
+                                                        <ul class="mb-0">
+                                                            <li>Review our leap-of-faith assumptions</li>
+                                                            <li>Establish shared understanding of focus group format</li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><span class="badge bg-secondary">40 min</span></td>
+                                                    <td>Raw Feedback Review</td>
+                                                    <td>Understand what we heard before interpreting why</td>
+                                                    <td>
+                                                        <ul class="mb-0">
+                                                            <li>What feedback patterns are emerging?</li>
+                                                            <li>Which feedback points were mentioned most frequently?</li>
+                                                            <li>Where do we see contradictions in the feedback?</li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><span class="badge bg-secondary">25 min</span></td>
+                                                    <td>Age-Based Motivation Analysis</td>
+                                                    <td>Explore the critical insight about different motivations</td>
+                                                    <td>
+                                                        <ul class="mb-0">
+                                                            <li>How significant is the difference between age groups?</li>
+                                                            <li>What features would uniquely serve each group?</li>
+                                                            <li>Should we prioritize one age group initially?</li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><span class="badge bg-secondary">20 min</span></td>
+                                                    <td>Assumption Validation</td>
+                                                    <td>Determine which assumptions were validated/invalidated</td>
+                                                    <td>
+                                                        <ul class="mb-0">
+                                                            <li>Which assumptions were clearly validated?</li>
+                                                            <li>Which assumptions need to be reconsidered?</li>
+                                                            <li>What new assumptions should we consider?</li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><span class="badge bg-secondary">15 min</span></td>
+                                                    <td>Feature Insight Collection</td>
+                                                    <td>Capture feature ideas for next week's prioritization</td>
+                                                    <td>
+                                                        <ul class="mb-0">
+                                                            <li>Which features directly address pain points?</li>
+                                                            <li>Which features build on elements users were excited about?</li>
+                                                            <li>What quick wins could we implement?</li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><span class="badge bg-secondary">5 min</span></td>
+                                                    <td>Next Steps</td>
+                                                    <td>Summarize and prepare for prioritization session</td>
+                                                    <td>
+                                                        <ul class="mb-0">
+                                                            <li>Outline process for next week's session</li>
+                                                            <li>Assign preparation tasks</li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section> -->
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
